@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">LearnAndroidProgrammingFromScratchBeta</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+	<string-array name="elements">
+		<item>one</item>
+		<item>two</item>
+		<item>three</item>
+		<item>four</item>
+		<item>five</item>
+		<item>six</item>
+		<item>seven</item>
+		<item>one</item>
+		<item>two</item>
+		<item>three</item>
+		<item>four</item>
+		<item>five</item>
+		<item>six</item>
+		<item>seven</item>
+		<item>one</item>
+		<item>two</item>
+		<item>three</item>
+		<item>four</item>
+		<item>five</item>
+		<item>six</item>
+		<item>seven</item>
+	</string-array>
+
+</resources>
