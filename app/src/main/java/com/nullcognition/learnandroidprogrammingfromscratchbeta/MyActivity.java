@@ -25,6 +25,7 @@ public class MyActivity extends Activity implements com.nullcognition.learnandro
 	  isBound = false;
 	}
   };
+  android.widget.VideoView videoView = null;
   private DB                      countryDatabase = null;
   private android.database.Cursor countries       = null;
 
@@ -48,6 +49,18 @@ public class MyActivity extends Activity implements com.nullcognition.learnandro
 
 	fragmentTrasaction.commit();
 	fragmentManager.executePendingTransactions();
+
+	// video playback, remember to use the right codec
+//	android.widget.MediaController mediaController = new android.widget.MediaController(this);
+//	videoView = (android.widget.VideoView)findViewById(com.nullcognition.learnandroidprogrammingfromscratchbeta.R.id.videoView);
+//	videoView.setMediaController(mediaController);
+//	videoView.setVideoPath("/mnt/sdcard/vid.mp4");
+//	mediaController.setAnchorView(videoView);
+//	mediaController.setMediaPlayer(videoView);
+//	videoView.requestFocus();
+//	mediaController.show();
+//	videoView.start();
+//	videoView.setZOrderOnTop(true);
 
 //Create the database helper:
 

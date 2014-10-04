@@ -22,6 +22,8 @@ public class MyIntentService extends IntentService {
   private static final String EXTRA_PARAM1 = "com.nullcognition.learnandroidprogrammingfromscratchbeta.extra.PARAM1";
   private static final String EXTRA_PARAM2 = "com.nullcognition.learnandroidprogrammingfromscratchbeta.extra.PARAM2";
   String s = null;
+  String                    sdPath      = "/mnt/sdcard/test.wav";
+  android.media.MediaPlayer mediaPlayer = null;
 
   public MyIntentService(){
 	super("MyIntentService");
@@ -50,6 +52,12 @@ public class MyIntentService extends IntentService {
 	context.startService(intent);
   }
 
+  @Override
+  public void onCreate(){
+	super.onCreate();
+	to();
+  }
+
   /**
    * Starts this service to perform action Foo with the given parameters. If
    * the service is already performing a task this action will be queued.
@@ -60,7 +68,8 @@ public class MyIntentService extends IntentService {
   @Override
   public void onDestroy(){
 	android.widget.Toast.makeText(getApplicationContext(), "done ", android.widget.Toast.LENGTH_SHORT).show();
-
+	mediaPlayer.release();
+	mediaPlayer = null;
 	super.onDestroy();
   }
 
@@ -80,7 +89,6 @@ public class MyIntentService extends IntentService {
 	  }
 	  s = intent.getExtras().getString("serIntent");
 	}
-	to();
   }
 
   /**
@@ -105,5 +113,16 @@ public class MyIntentService extends IntentService {
 	//android.widget.Toast.makeText(getApplicationContext(), s, android.widget.Toast.LENGTH_SHORT).show();
 	// wont work due to posting to ui thread from outside of it, use a handler.post(Runnable)
 	// intent service is an asynchronous way to do the task as it is run on a worker thread
+
+	//mediaPlayer = android.media.MediaPlayer.create(getApplicationContext(), com.nullcognition.learnandroidprogrammingfromscratchbeta.R.raw.test);
+	//mediaPlayer.start();
+	mediaPlayer = new android.media.MediaPlayer();
+	try{
+	  mediaPlayer.setDataSource(sdPath);
+	  mediaPlayer.prepare();
+	  mediaPlayer.start();
+	  Thread.sleep(1000);
+	}
+	catch(Exception e){}
   }
 }
